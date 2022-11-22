@@ -1,4 +1,4 @@
-package com.hubtwork.clean_mvvm.app
+package com.hubtwork.clean_android.app
 
 import android.app.Application
 

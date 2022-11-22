@@ -1,4 +1,4 @@
-package com.hubtwork.clean_mvvm.data
+package com.hubtwork.clean_android.presentation
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.hubtwork.clean_mvvm.data.test", appContext.packageName)
+        assertEquals("com.hubtwork.clean_mvvm.presentation.test", appContext.packageName)
     }
 }

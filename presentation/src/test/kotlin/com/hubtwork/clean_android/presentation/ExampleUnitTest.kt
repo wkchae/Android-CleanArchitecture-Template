@@ -1,4 +1,4 @@
-package com.hubtwork.clean_mvvm.presentation
+package com.hubtwork.clean_android.presentation
 
 import org.junit.Test
 

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.hubtwork.clean_mvvm.presentation"
+    namespace = "com.hubtwork.clean_android.presentation"
     compileSdk = 33
 
     defaultConfig {

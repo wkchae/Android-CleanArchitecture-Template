@@ -1,4 +1,4 @@
-package com.hubtwork.clean_mvvm.data
+package com.hubtwork.clean_android.data
 
 import org.junit.Test
 

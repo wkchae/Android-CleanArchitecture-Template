@@ -12,7 +12,7 @@
 //        mavenCentral()
 //    }
 //}
-rootProject.name = "clean_mvvm"
+rootProject.name = "clean_android"
 include(":app")
 
 /**
