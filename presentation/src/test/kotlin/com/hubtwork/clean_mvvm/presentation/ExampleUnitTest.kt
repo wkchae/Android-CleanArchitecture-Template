@@ -1,4 +1,4 @@
-package com.hubtwork.clean_mvvm
+package com.hubtwork.clean_mvvm.presentation
 
 import org.junit.Test
 
