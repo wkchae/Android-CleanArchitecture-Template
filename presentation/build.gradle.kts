@@ -4,12 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.hubtwork.clean_android.presentation"
-    compileSdk = 33
+    namespace = namespace("presentation")
+    compileSdk = Application.compileSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 33
+        minSdk = Application.minSdk
+        targetSdk = Application.targetSdk
+
+        multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -17,19 +20,15 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            consumerProguardFiles("consumer-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Application.jvmSourceCompat
+        targetCompatibility = Application.jvmTargetCompat
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Application.jvmTarget
     }
 }
 

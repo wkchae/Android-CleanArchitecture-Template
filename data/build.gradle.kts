@@ -1,35 +1,33 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
-    namespace = "com.hubtwork.clean_android.data"
-    compileSdk = 33
+    namespace = namespace("data")
+    compileSdk = Application.compileSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 33
+        minSdk = Application.minSdk
+        targetSdk = Application.targetSdk
+
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            consumerProguardFiles("consumer-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Application.jvmSourceCompat
+        targetCompatibility = Application.jvmTargetCompat
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Application.jvmTarget
     }
 }
 
