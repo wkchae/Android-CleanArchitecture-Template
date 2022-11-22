@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = namespace("presentation")
+    namespace = Application.namespace("presentation")
     compileSdk = Application.compileSdk
 
     defaultConfig {

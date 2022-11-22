@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = namespace("app")
+    namespace = Application.namespace("app")
     compileSdk = Application.compileSdk
 
     defaultConfig {

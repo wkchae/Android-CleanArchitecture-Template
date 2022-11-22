@@ -5,6 +5,11 @@ import org.gradle.api.JavaVersion
  * @contacts hubtwork@gmail.com
  */
 object Application {
+    // create proper namespace with root path
+    fun namespace(modulePath: String): String {
+        return "com.hubtwork.clean_android.$modulePath"
+    }
+
     const val ID = "com.hubtwork.clean_android.app"
     // about android SDK version
     const val compileSdk = 33
@@ -17,8 +22,4 @@ object Application {
     const val jvmTarget = "11"
     val jvmTargetCompat = JavaVersion.VERSION_11
     val jvmSourceCompat = JavaVersion.VERSION_11
-}
-
-fun namespace(modulePath: String): String {
-    return "com.hubtwork.clean_android.$modulePath"
 }
