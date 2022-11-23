@@ -42,4 +42,5 @@ dependencies {
     // Test: UnitTest
     testRuntimeOnly(Dependency.Test.JUnit.engine)
     Dependency.Test.JUnit.API.forEach(::testImplementation)
+    testImplementation(Dependency.Test.coroutine)
 }

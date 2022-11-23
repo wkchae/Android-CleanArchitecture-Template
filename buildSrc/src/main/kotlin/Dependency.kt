@@ -4,6 +4,9 @@
  */
 object Dependency {
     object Test {
+        private const val versionCoroutine = "1.6.4"
+        const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versionCoroutine"
+
         object JUnit {
             private const val version = "5.9.1"
             private const val plugin = "1.3.0"
