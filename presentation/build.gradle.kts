@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("de.mannodermaus.android-junit5") version "1.8.2.1"
 }
 
 android {
@@ -30,6 +31,10 @@ android {
     kotlinOptions {
         jvmTarget = Application.jvmTarget
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -46,6 +51,8 @@ dependencies {
     Dependency.Test.JUnit.API.forEach(::testImplementation)
     testImplementation(Dependency.Test.coroutine)
     // Test: Instrumental Test
+    Dependency.Test.Espresso.API.forEach(::androidTestImplementation)
     androidTestRuntimeOnly(Dependency.Test.JUnit.instrumentalEngine)
+    Dependency.Test.JUnit.API.forEach(::androidTestImplementation)
     androidTestImplementation(Dependency.Test.JUnit.instrumentalCore)
 }

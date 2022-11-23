@@ -15,6 +15,3 @@ dependencies {
     Dependency.Test.JUnit.API.forEach(::testImplementation)
     testImplementation(Dependency.Test.coroutine)
 }
-tasks.withType(Test::class) {
-    useJUnitPlatform()
-}

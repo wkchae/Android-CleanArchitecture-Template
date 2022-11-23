@@ -18,14 +18,16 @@ object Dependency {
             // apis
             private const val api = "org.junit.jupiter:junit-jupiter-api:$version"
             private const val param = "org.junit.jupiter:junit-jupiter-params:$version"
-            const val instrumentalCore = "de.mannodermaus.junit5:android-test-core:$version"
+            const val instrumentalCore = "de.mannodermaus.junit5:android-test-core:$plugin"
             val API = listOf(api, param)
         }
         object Espresso {
             private const val versionJUnitExt = "1.1.4"
             private const val versionEspresso = "3.5.0"
             const val jUnitExt = "androidx.test.ext:junit-ktx:$versionJUnitExt"
-            const val espresso = "androidx.test:espresso:espresso-core:$versionEspresso"
+            private const val espresso = "androidx.test.espresso:espresso-core:$versionEspresso"
+            private const val testRunner = "androidx.test:runner:1.5.1"
+            val API = listOf(espresso, testRunner)
         }
 
     }
