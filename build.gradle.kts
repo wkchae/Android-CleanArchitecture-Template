@@ -36,6 +36,9 @@ allprojects {
             }
         }
     }
+    tasks.withType(Test::class) {
+        useJUnitPlatform()
+    }
 }
 
 tasks.register("clean", Delete::class) {

@@ -22,5 +22,5 @@ include(":app")
  * (3) Presentation
  */
 include(":domain")
-include(":presentation")
 include(":data")
+include(":presentation")
