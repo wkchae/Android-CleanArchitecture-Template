@@ -4,10 +4,27 @@
  */
 object Dependency {
     object Test {
-        private const val version_jUnit = "5.9.1"
+        object JUnit {
+            private const val version = "5.9.1"
+            private const val plugin = "1.3.0"
+            // runtime
+            const val engine = "org.junit.jupiter:junit-jupiter-engine:$version"
+            const val vintageEngine =
+                "org.junit.vintage:junit-vintage-engine:$version" // for JUnit4 compatibility
+            const val instrumentalEngine = "de.mannodermaus.junit5:android-test-runner:$plugin"
+            // apis
+            private const val api = "org.junit.jupiter:junit-jupiter-api:$version"
+            private const val param = "org.junit.jupiter:junit-jupiter-params:$version"
+            const val instrumentalCore = "de.mannodermaus.junit5:android-test-core:$version"
+            val API = listOf(api, param)
+        }
+        object Espresso {
+            private const val versionJUnitExt = "1.1.4"
+            private const val versionEspresso = "3.5.0"
+            const val jUnitExt = "androidx.test.ext:junit-ktx:$versionJUnitExt"
+            const val espresso = "androidx.test:espresso:espresso-core:$versionEspresso"
+        }
 
-        const val jUnitPlatform = "org.junit:junit-bom:$version_jUnit"
-        const val jUnit = "org.junit.jupiter:junit-jupiter:$version_jUnit"
     }
 
     object Kotlin {

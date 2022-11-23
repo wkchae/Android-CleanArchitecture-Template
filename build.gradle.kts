@@ -6,6 +6,7 @@
 //    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
 //}
 
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -15,6 +16,9 @@ buildscript {
     }
 
     dependencies {
+        // junit5 android plugin from
+        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.8.2.1")
+
         classpath("com.android.tools.build:gradle:7.3.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     }
@@ -38,6 +42,9 @@ allprojects {
     }
     tasks.withType(Test::class) {
         useJUnitPlatform()
+        testLogging {
+            events.addAll(arrayOf(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED))
+        }
     }
 }
 

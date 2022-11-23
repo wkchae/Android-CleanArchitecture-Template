@@ -11,8 +11,8 @@ java {
 dependencies {
     Dependency.Kotlin.Native.forEach(::implementation)
     // Test setup
-    testImplementation(Dependency.Test.jUnit)
-
+    testRuntimeOnly(Dependency.Test.JUnit.engine)
+    Dependency.Test.JUnit.API.forEach(::testImplementation)
 }
 tasks.withType(Test::class) {
     useJUnitPlatform()

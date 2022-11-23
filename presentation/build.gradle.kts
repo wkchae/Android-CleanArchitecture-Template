@@ -15,7 +15,7 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        testInstrumentationRunnerArguments["runnerBuilder"] = "de.mannodermaus.junit5.AndroidJUnit5Builder"
     }
 
     buildTypes {
@@ -38,7 +38,13 @@ dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.7.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+
+
+    // Test
+    // Test: UnitTest
+    testRuntimeOnly(Dependency.Test.JUnit.engine)
+    Dependency.Test.JUnit.API.forEach(::testImplementation)
+    // Test: Instrumental Test
+    androidTestRuntimeOnly(Dependency.Test.JUnit.instrumentalEngine)
+    androidTestImplementation(Dependency.Test.JUnit.instrumentalCore)
 }
