@@ -51,8 +51,8 @@ dependencies {
     Dependency.Test.JUnit.API.forEach(::testImplementation)
     testImplementation(Dependency.Test.coroutine)
     // Test: Instrumental Test
-    Dependency.Test.Espresso.API.forEach(::androidTestImplementation)
     androidTestRuntimeOnly(Dependency.Test.JUnit.instrumentalEngine)
+    androidTestImplementation(Dependency.Test.Espresso.espresso)
     Dependency.Test.JUnit.API.forEach(::androidTestImplementation)
     androidTestImplementation(Dependency.Test.JUnit.instrumentalCore)
 }

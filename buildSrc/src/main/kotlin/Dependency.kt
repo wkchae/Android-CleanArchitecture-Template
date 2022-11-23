@@ -25,9 +25,9 @@ object Dependency {
             private const val versionJUnitExt = "1.1.4"
             private const val versionEspresso = "3.5.0"
             const val jUnitExt = "androidx.test.ext:junit-ktx:$versionJUnitExt"
-            private const val espresso = "androidx.test.espresso:espresso-core:$versionEspresso"
+            const val espresso = "androidx.test.espresso:espresso-core:$versionEspresso"
+            // for JUnit 4
             private const val testRunner = "androidx.test:runner:1.5.1"
-            val API = listOf(espresso, testRunner)
         }
 
     }
