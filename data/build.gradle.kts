@@ -34,11 +34,8 @@ dependencies {
     implementation(project(":domain"))
 
     // Dependency
-    implementation("androidx.core:core-ktx:1.9.0")
-
     addKotlin(isAndroid = true)
     addRetrofit()
-
 
     // Test
     addTestDependencies()
