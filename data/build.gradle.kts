@@ -38,6 +38,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.7.0")
 
+
     // Test
     // Test: UnitTest
     testRuntimeOnly(Dependency.Test.JUnit.engine)

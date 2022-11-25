@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -47,9 +49,17 @@ android {
 }
 
 dependencies {
+    // Project Scope
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":presentation"))
+
+    // Util
+    kapt(Dependency.Util.Hilt.compiler)
+    implementation(Dependency.Util.Hilt.core)
+    debugImplementation(Dependency.Util.leakCanary)
+
+
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.5.1")

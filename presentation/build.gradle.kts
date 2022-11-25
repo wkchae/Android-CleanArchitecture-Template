@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
     id("de.mannodermaus.android-junit5") version "1.8.2.1"
 }
 
@@ -38,7 +40,14 @@ android {
 }
 
 dependencies {
+    // Project
     implementation(project(":domain"))
+
+    // Util
+    kapt(Dependency.Util.Hilt.compiler)
+    implementation(Dependency.Util.Hilt.core)
+
+    // UI
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.5.1")

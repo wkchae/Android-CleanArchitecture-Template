@@ -9,6 +9,7 @@
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+@Suppress("AndroidGradlePluginVersion")
 buildscript {
     repositories {
         google()
@@ -16,8 +17,9 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle:7.3.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.44.2")
     }
 }
 
