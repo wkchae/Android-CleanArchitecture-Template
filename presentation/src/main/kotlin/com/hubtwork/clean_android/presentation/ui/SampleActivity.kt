@@ -7,11 +7,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.hubtwork.clean_android.presentation.R
 import com.hubtwork.clean_android.presentation.databinding.ActivitySampleBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
+
+@AndroidEntryPoint
 class SampleActivity: AppCompatActivity(R.layout.activity_sample) {
     private lateinit var binding: ViewDataBinding
 

@@ -3,6 +3,9 @@
  * @contacts hubtwork@gmail.com
  */
 object Version {
+    // gradle
+    const val gradle = "7.3.0"
+
     // kotlin
     const val kotlin = "1.7.10"
     const val coroutine = "1.6.4"
@@ -21,8 +24,12 @@ object Version {
         const val recyclerView = "1.2.1"
         const val fragment = "1.5.4"
 
+        const val splashScreen = "1.0.0"
+
         const val startUp = "1.1.1"
     }
+    // UI
+    const val material = "1.7.0"
 
 
     // network

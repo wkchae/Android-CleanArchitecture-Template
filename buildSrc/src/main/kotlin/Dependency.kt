@@ -44,11 +44,16 @@ object Dependency {
         val recyclerView = "androidx.recyclerview:recyclerview:${Version.AndroidX.recyclerView}"
         // fragment
         val fragment = "androidx.fragment:fragment-ktx:${Version.AndroidX.fragment}"
+        // splash screen api 12
+        val splashScreen = "androidx.core:core-splashscreen:${Version.AndroidX.splashScreen}"
         // startup
         val startUp = "androidx.startup:startup-runtime:${Version.AndroidX.startUp}"
     }
 
-
+    object UI {
+        // google material design
+        const val material = "com.google.android.material:material:${Version.material}"
+    }
 
     object Network {
         // -- OkHttp3

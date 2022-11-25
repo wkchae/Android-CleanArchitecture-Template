@@ -35,13 +35,11 @@ dependencies {
 
     // Dependency
     implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.7.0")
+
+    addKotlin(isAndroid = true)
+    addRetrofit()
 
 
     // Test
-    // Test: UnitTest
-    testRuntimeOnly(Dependency.Test.JUnit.engine)
-    Dependency.Test.JUnit.API.forEach(::testImplementation)
-    testImplementation(Dependency.Test.coroutine)
+    addTestDependencies()
 }
