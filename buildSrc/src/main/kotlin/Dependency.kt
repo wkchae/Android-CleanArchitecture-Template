@@ -7,7 +7,7 @@ object Dependency {
 
     object Test {
         // coroutine
-        val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutine}"
+        const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutine}"
         // junit5
         object JUnit {
             // runtime
@@ -26,17 +26,10 @@ object Dependency {
     }
 
     object Kotlin {
-        private const val version = "1.7.10"
-        private const val versionCoroutine = "1.6.4"
-        // lib
-        private const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}"
-        private const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutine}"
-        private const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutine}"
-        // dependency pack
-        val Android = listOf(stdlib, coroutineAndroid)
-        val Native = listOf(stdlib, coroutineCore)
+        const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}"
+        const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutine}"
+        const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutine}"
     }
-
 
     object AndroidX {
         // core
@@ -69,17 +62,17 @@ object Dependency {
 
     object Util {
         // Debugging
-        val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Version.leakCanary}"
+        const val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Version.leakCanary}"
         // DI
-        val hiltCore = "com.google.dagger:hilt-android:${Version.hilt}"
-        val hiltCompiler = "com.google.dagger:hilt-compiler:${Version.hilt}"
+        const val hiltCore = "com.google.dagger:hilt-android:${Version.hilt}"
+        const val hiltCompiler = "com.google.dagger:hilt-compiler:${Version.hilt}"
         // parser
-        val jacksonCore = "com.fasterxml.jackson.core:jackson-core:${Version.jackson}"
-        val jacksonDatabind = "com.fasterxml.jackson.core:jackson-databind:${Version.jackson}"
-        val jacksonAnnotation = "com.fasterxml.jackson.core:jackson-annotations:${Version.jackson}"
-        val jacksonKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:${Version.jackson}"
+        const val jacksonCore = "com.fasterxml.jackson.core:jackson-core:${Version.jackson}"
+        const val jacksonDatabind = "com.fasterxml.jackson.core:jackson-databind:${Version.jackson}"
+        const val jacksonAnnotation = "com.fasterxml.jackson.core:jackson-annotations:${Version.jackson}"
+        const val jacksonKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:${Version.jackson}"
         // logger
-        val timber = "com.jakewharton.timber:timber:${Version.timber}"
+        const val timber = "com.jakewharton.timber:timber:${Version.timber}"
     }
 
 }
