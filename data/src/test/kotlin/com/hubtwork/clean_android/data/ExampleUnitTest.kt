@@ -16,6 +16,5 @@ class ExampleUnitTest {
     }
     @Test
     fun additional() {
-
     }
 }
