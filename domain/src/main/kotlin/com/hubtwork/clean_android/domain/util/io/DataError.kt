@@ -4,32 +4,21 @@ package com.hubtwork.clean_android.domain.util.io
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
+
+enum class HttpError {
+
+    InternalServerError
+}
 sealed interface DataError {
+    data class HTTP(val e: HttpError): DataError
 
+    object Unknown: DataError
 
-    sealed interface HttpError: DataError {
-        object InternalError : HttpError
-
-    }
-
-    sealed interface ApiError: DataError {
-        object Example: ApiError
-
-    }
-
-    object Unknown: HttpError, ApiError
-
-
-    fun parseHttpError(httpStatusCode: Int): HttpError {
-        return when(httpStatusCode) {
-            500 -> HttpError.InternalError
-            else -> Unknown
+    fun parseHttpError(httpStatusCode: Int): DataError {
+        val e: HttpError? = when(httpStatusCode) {
+            500 -> HttpError.InternalServerError
+            else -> null
         }
-    }
-    fun parseApiError(apiStatusCode: Int): ApiError {
-        return when(apiStatusCode) {
-            -100 -> ApiError.Example
-            else -> return Unknown
-        }
+        return e?.let { HTTP(it) } ?:run { Unknown }
     }
 }

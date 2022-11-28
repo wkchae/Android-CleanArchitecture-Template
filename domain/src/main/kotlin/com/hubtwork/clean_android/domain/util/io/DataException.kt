@@ -9,10 +9,9 @@ sealed class DataException: Exception {
     constructor(msg: String): super(msg)
     constructor(msg: String, cause: Throwable): super(msg, cause)
     constructor(cause: Throwable): super(cause)
-
-    class NoInternet: DataException()
-    class TimeOut: DataException()
-    class JSONParse: DataException()
-
-    class Unknown(cause: Throwable): DataException(msg = "Not specified exception occurred. Check cause of it", cause = cause)
+    // implementations
+    object NoNetworkConnectionException: DataException()
+    object RequestTimeOutException: DataException()
+    object JSONParseException: DataException()
+    class UnknownException(cause: Throwable): DataException(msg = "Not specified exception occurred. Check cause of it", cause = cause)
 }

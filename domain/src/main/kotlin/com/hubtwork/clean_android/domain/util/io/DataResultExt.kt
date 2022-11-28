@@ -23,3 +23,9 @@ suspend fun <T: Any> DataResult<T>.onException(
     // Smart Cast to exception
     if (this is DataResult.Failure.Exception) handler(cause)
 }
+
+suspend fun <T: Any> DataResult<T>.onFinally(
+    handler: suspend () -> Unit
+): DataResult<T> = apply {
+    handler()
+}
