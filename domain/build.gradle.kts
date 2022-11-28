@@ -15,6 +15,7 @@ dependencies {
     addKotlin(isAndroid = false)
     // Test setup
     addTestDependencies()
+    testImplementation("org.assertj:assertj-core:3.23.1")
 }
 
 tasks.withType<KotlinCompile> {
