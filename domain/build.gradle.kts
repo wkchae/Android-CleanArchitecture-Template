@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("java-library")
     kotlin("jvm")
@@ -13,4 +15,10 @@ dependencies {
     addKotlin(isAndroid = false)
     // Test setup
     addTestDependencies()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.freeCompilerArgs += listOf(
+        "-Xopt-in=kotlin.contracts.ExperimentalContracts"   // use contract for syntactic contracts
+    )
 }
