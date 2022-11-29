@@ -13,8 +13,4 @@ import javax.inject.Inject
 @HiltAndroidApp
 class App: Application() {
 
-    override fun getApplicationContext(): Context {
-        return super.getApplicationContext()
-    }
-
 }
