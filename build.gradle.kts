@@ -32,11 +32,18 @@ allprojects {
     afterEvaluate {
         tasks.withType<KotlinCompile> {
             kotlinOptions {
+                jvmTarget = Application.jvmTarget
                 freeCompilerArgs = freeCompilerArgs + listOf(
                     "-Xopt-in=kotlin.OptIn",
-                    "-Xopt-in=kotlin.RequiresOptIn"
+                    "-Xopt-in=kotlin.RequiresOptIn",
                 )
             }
+        }
+        tasks.withType<JavaCompile> {
+            options.compilerArgs.addAll(listOf(
+                "-Xlint:deprecation",
+                "-Xlint:unchecked",
+            ))
         }
     }
     tasks.withType(Test::class) {

@@ -20,7 +20,10 @@ include(":app")
  * (1) Domain
  * (2) Data
  * (3) Presentation
+ *
+ * [*] Core - Android
  */
 include(":domain")
 include(":data")
 include(":presentation")
+include(":core")

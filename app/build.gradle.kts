@@ -20,6 +20,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["runnerBuilder"] = "de.mannodermaus.junit5.AndroidJUnit5Builder"
+
+        resValue("bool", "enableLogging", "false")
     }
 
     buildTypes {
@@ -31,6 +33,7 @@ android {
             isDebuggable = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 
+            resValue("bool", "enableLogging", "true")
         }
         release {
             isMinifyEnabled = true
@@ -52,12 +55,15 @@ dependencies {
     // Project Scope
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":core"))
     implementation(project(":presentation"))
 
     // AndroidX
+    implementation(Dependency.AndroidX.startUp)
 
     // Util
     addHilt()
+    implementation(Dependency.Util.timber)
     debugImplementation(Dependency.Util.leakCanary)
 
     implementation("androidx.core:core-ktx:1.9.0")
