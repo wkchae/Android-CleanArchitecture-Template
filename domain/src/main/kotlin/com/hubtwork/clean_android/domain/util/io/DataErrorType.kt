@@ -5,7 +5,7 @@ package com.hubtwork.clean_android.domain.util.io
  * @contacts hubtwork@gmail.com
  */
 
-enum class NetworkException {
+enum class NetworkError {
     NoInternet,
     TimeOut,
     JsonParseError,
@@ -15,7 +15,7 @@ enum class NetworkException {
 sealed interface DataErrorType {
     data class HTTP(val statusCode: Int): DataErrorType
 
-    data class Network(val e: NetworkException): DataErrorType
+    data class Network(val e: NetworkError): DataErrorType
 
     object Unknown: DataErrorType
 }
