@@ -1,6 +1,6 @@
 package com.hubtwork.clean_android.data.network.service
 
-import com.hubtwork.clean_android.data.network.model.FetchPokemonResponse
+import com.hubtwork.clean_android.data.network.model.pokemon.FetchPokemonResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

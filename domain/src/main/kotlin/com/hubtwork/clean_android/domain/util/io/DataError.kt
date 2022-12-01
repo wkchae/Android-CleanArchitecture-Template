@@ -9,8 +9,15 @@ enum class HttpError {
 
     InternalServerError
 }
+enum class NetworkError {
+
+    NoInternet,
+    RequestTimOut,
+}
 sealed interface DataError {
     data class HTTP(val e: HttpError): DataError
+
+    data class Network(val e: HttpError): DataError
 
     object Unknown: DataError
 

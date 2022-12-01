@@ -1,11 +1,11 @@
 package com.hubtwork.clean_android.domain.junit5
 
+
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceTimeBy
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -16,6 +16,8 @@ import org.junit.jupiter.api.Test
  * @contacts hubtwork@gmail.com
  */
 @OptIn(ExperimentalCoroutinesApi::class)
+
+
 @DisplayName("Basic Coroutine Test")
 class BaseCoroutineTest {
 
@@ -23,7 +25,7 @@ class BaseCoroutineTest {
     @DisplayName("runTest")
     inner class BaseRunTest {
         @Test
-        @DisplayName("success")
+        @DisplayName("advanceTimeBy")
         fun success() = runTest {
             var num = 4
             suspend fun sync() {
@@ -51,7 +53,7 @@ class BaseCoroutineTest {
     @DisplayName("UnconfinedDispatcher")
     inner class UnconfinedDispatcherTest {
         @Test
-        @DisplayName("success")
+        @DisplayName("base")
         fun success() = runTest(UnconfinedTestDispatcher()) {
             assert(true)
         }

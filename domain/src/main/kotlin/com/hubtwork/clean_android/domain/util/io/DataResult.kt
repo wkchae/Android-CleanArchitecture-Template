@@ -4,6 +4,9 @@ package com.hubtwork.clean_android.domain.util.io
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
+
+typealias DataSuccess<Domain> = DataResult.Success<Domain>
+
 sealed interface DataResult<out T: Any> {
     data class Success<T: Any>(val data: T): DataResult<T>
     sealed interface Failure: DataResult<Nothing> {

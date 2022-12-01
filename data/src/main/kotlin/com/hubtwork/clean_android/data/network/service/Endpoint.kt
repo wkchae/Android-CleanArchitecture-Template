@@ -5,7 +5,7 @@ package com.hubtwork.clean_android.data.network.service
  * @contacts hubtwork@gmail.com
  */
 object Endpoint {
-    private const val base = "https://pokeapi.co/api/v2"
+    const val base = "https://pokeapi.co/api/v2"
 
     const val GetPokemon = "pokemon"
     

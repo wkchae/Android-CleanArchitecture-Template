@@ -16,10 +16,17 @@ fun DependencyHandler.addKotlin(isAndroid: Boolean = true) {
 }
 
 fun DependencyHandler.addRetrofit() {
+    // okhttp
     implementation(Dependency.Network.okhttp)
     implementation(Dependency.Network.okhttpLogging)
+    // retrofit
     implementation(Dependency.Network.retrofit)
     implementation(Dependency.Network.retrofitConverterJackson)
+    // jackson
+    implementation(Dependency.Util.jacksonCore)
+    implementation(Dependency.Util.jacksonKotlin)
+    implementation(Dependency.Util.jacksonAnnotation)
+    implementation(Dependency.Util.jacksonDatabind)
 }
 
 fun DependencyHandler.addHilt() {

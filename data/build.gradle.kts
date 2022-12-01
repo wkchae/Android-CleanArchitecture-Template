@@ -35,6 +35,7 @@ dependencies {
 
     // Dependency
     addKotlin(isAndroid = true)
+    addHilt()
     addRetrofit()
 
 
