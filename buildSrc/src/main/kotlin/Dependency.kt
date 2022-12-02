@@ -21,6 +21,10 @@ object Dependency {
             const val param = "org.junit.jupiter:junit-jupiter-params:${Version.junit}"
             const val instrumentalCore = "de.mannodermaus.junit5:android-test-core:${Version.junitPlugin}"
         }
+        // Network
+        object Network {
+            const val mockWebserver = "com.squareup.okhttp3:mockwebserver:${Version.okHttp3}"
+        }
         // espresso
         const val espresso = "androidx.test.espresso:espresso-core:${Version.espresso}"
     }

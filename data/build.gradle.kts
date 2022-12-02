@@ -41,4 +41,5 @@ dependencies {
 
     // Test
     addTestDependencies()
+    testImplementation(Dependency.Test.Network.mockWebserver)
 }

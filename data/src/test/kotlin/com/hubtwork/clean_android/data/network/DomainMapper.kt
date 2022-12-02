@@ -53,5 +53,4 @@ class DomainMapper {
             else fail { "`toDomainSafe` must map all exceptions to `InvalidResponseException`"}
         }
     }
-
 }
