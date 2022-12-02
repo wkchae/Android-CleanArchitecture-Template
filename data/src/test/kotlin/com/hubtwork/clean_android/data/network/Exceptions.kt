@@ -38,7 +38,7 @@ class Exceptions {
                 println("hi ${e.cause}")
                 assert(true)
             }
-            else fail("it can't be reached")
+            else fail("it must not be reached")
         }
     }
 }

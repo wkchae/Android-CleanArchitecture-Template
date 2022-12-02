@@ -1,7 +1,5 @@
 package com.hubtwork.clean_android.data.network.util
 
-import java.net.UnknownHostException
-
 /**
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
