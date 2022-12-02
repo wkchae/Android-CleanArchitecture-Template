@@ -12,5 +12,8 @@ package com.hubtwork.clean_android.domain.model
 data class Pokemon(
     val name: String,
     val image: String,
-    val groupId: Int,
-)
+) {
+    private var _groupId: Int = 0
+    val groupId: Int get() = _groupId
+    fun markGroup(id: Int) { _groupId = id }
+}

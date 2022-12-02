@@ -12,11 +12,16 @@ open class NetworkException: Exception {
     constructor(cause: Throwable?) : super(cause)
 }
 
-/** Received invalid response.  */
-class InvalidResponseException(msg: String): NetworkException(msg)
+/**
+ *
+ * Invalid Response from api server.
+ * It means failure during parsing JSON response from API.
+ * */
+data class InvalidResponseException(val e: Throwable): NetworkException(e)
 /** Client request some http connection, but no internet supported or host is incorrect */
 data class NotConnectedException(val e: Exception): NetworkException(e)
 /** Client didn't receive response from server in timeout constraint */
 data class RequestTimeoutException(val e: Exception): NetworkException(e)
 /** Unknown Exception */
 data class UnknownException(val e: Throwable?): NetworkException(e)
+

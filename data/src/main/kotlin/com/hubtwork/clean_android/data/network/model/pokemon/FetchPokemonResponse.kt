@@ -17,11 +17,12 @@ data class FetchPokemonResponse(
     val previous: String? = null,
     @field:JsonProperty("results")
     val results: List<BasePokemonResponse>,
-) {
+): ResponseModel<List<Pokemon>> {
+    override val isValid: Boolean
+        get() = count != null
     @Throws(NullPointerException::class)
-    fun toDomain(groupId: Int): List<Pokemon> {
-        count ?: throw NullPointerException()
-        return results.map { it.toDomain(groupId) }
+    override fun toDomain(): List<Pokemon> {
+        return results.map { it.toDomain() }
     }
 
     data class BasePokemonResponse(
@@ -29,14 +30,15 @@ data class FetchPokemonResponse(
         val name: String? = null,
         @field:JsonProperty("url")
         val url: String? = null,
-    ) {
-        fun toDomain(groupId: Int): Pokemon {
+    ): ResponseModel<Pokemon> {
+        override val isValid: Boolean
+            get() = !name.isNullOrEmpty() && !url.isNullOrEmpty()
+        override fun toDomain(): Pokemon {
             val id = url?.split("/")?.dropLast(1)?.last() ?: throw NullPointerException()
             val imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png"
             return Pokemon(
                 name = name ?: throw NullPointerException(),
                 image = imageUrl,
-                groupId = groupId,
             )
         }
     }

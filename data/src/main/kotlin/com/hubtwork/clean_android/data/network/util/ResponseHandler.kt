@@ -1,7 +1,10 @@
 package com.hubtwork.clean_android.data.network.util
 
 import com.hubtwork.clean_android.data.BuildConfig
+import com.hubtwork.clean_android.data.network.model.ResponseModel
+import com.hubtwork.clean_android.data.network.model.toDomainSafe
 import com.hubtwork.clean_android.domain.util.io.*
+import retrofit2.Response
 import java.io.IOException
 import java.net.SocketTimeoutException
 
@@ -21,14 +24,27 @@ private suspend fun <Domain: Any> exceptionHandler (
                 when (val cause = ex.cause) {
                     is NotConnectedException -> DataException(type = DataExceptionType.NoInternet)
                     is SocketTimeoutException -> DataException(type = DataExceptionType.TimeOut)
+                    is InvalidResponseException -> DataException(type = DataExceptionType.JsonParse)
                     else -> DataException(type = DataExceptionType.Unknown(cause))
                 }
             }
-            // Exception occurred during parse response,
-            // Response is successfully sent from server but some elements are wrong formats
-            is DataException.JSONParseException -> DataResult.Failure.Exception(cause = DataException.JSONParseException)
-            is HttpException -> ApiError(code = ERROR.parse(ex.code().toString()))
-            else -> ApiException(code = ApiExceptionCode.UNKNOWN)
+            else -> DataException(type = DataExceptionType.Unknown(ex))
+        }
+    }
+}
+
+suspend fun <Data: ResponseModel<Domain>, Domain: Any> handle (
+    response: suspend () -> Response<Data>
+): DataResult<Domain> {
+    return exceptionHandler {
+        response().let {
+            val body = it.body()
+            // Retrofit Request Layer
+            if (it.isSuccessful && body != null) {
+                DataSuccess(body.toDomainSafe())
+            } else {
+                DataError(type = DataErrorType.HTTP(it.code()))
+            }
         }
     }
 }
