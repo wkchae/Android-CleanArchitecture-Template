@@ -1,5 +1,6 @@
 package com.hubtwork.clean_android.data.network.service
 
+import com.hubtwork.clean_android.data.network.util.handle
 import com.hubtwork.clean_android.domain.model.Pokemon
 import com.hubtwork.clean_android.domain.util.io.DataError
 import com.hubtwork.clean_android.domain.util.io.DataErrorType
@@ -13,10 +14,23 @@ import javax.inject.Inject
 class PokemonClient @Inject constructor(
     private val service: PokeApiService
 ) {
+    /**
+     *
+     * given parameter groupId is in (0..N)
+     * ex) if want to fetch 0 group (1 ~ 20), offset = 0 and limit = 20.
+     */
     suspend fun fetchPokemonList(
-        offset: Int,
-        limit: Int,
+        groupId: Int
     ): DataResult<List<Pokemon>> {
-        return DataError(type = DataErrorType.HTTP(100))
+        return handle {
+            service.fetchPokemon(
+                offset = groupId * PAGE_CHUNK_SIZE,
+                limit = PAGE_CHUNK_SIZE
+            )
+        }
+    }
+
+    companion object {
+        const val PAGE_CHUNK_SIZE = 20
     }
 }
