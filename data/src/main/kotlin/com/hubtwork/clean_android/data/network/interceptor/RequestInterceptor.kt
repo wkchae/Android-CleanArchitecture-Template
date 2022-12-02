@@ -26,15 +26,5 @@ class RequestInterceptor: Interceptor {
                 else -> UnknownException(cause)
             }
         }
-//        catch (e: UnknownHostException) {
-//            /** If agent can't connect to internet, host will be not found */
-//            throw IOException().apply { initCause(NotConnectedException(e)) }
-//        } catch (e: SocketTimeoutException) {
-//            /** If agent can't get response in timeout constraint, socket timeout exception will be occurred */
-//            throw IOException().apply { initCause(RequestTimeoutException(e)) }
-//        } catch (e: Exception) {
-//            /** Not yet specified exception occurred */
-//            throw IOException().apply { initCause(UnknownException(e)) }
-//        }
     }
 }
