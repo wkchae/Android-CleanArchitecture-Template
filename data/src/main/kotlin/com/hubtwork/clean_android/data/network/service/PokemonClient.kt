@@ -2,8 +2,6 @@ package com.hubtwork.clean_android.data.network.service
 
 import com.hubtwork.clean_android.data.network.util.handle
 import com.hubtwork.clean_android.domain.model.Pokemon
-import com.hubtwork.clean_android.domain.util.io.DataError
-import com.hubtwork.clean_android.domain.util.io.DataErrorType
 import com.hubtwork.clean_android.domain.util.io.DataResult
 import javax.inject.Inject
 

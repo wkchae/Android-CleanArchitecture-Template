@@ -25,9 +25,10 @@ import java.nio.charset.StandardCharsets
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 abstract class MockAPI<T> {
-    lateinit var mockServer: MockWebServer
+    private lateinit var mockServer: MockWebServer
     // for test check is mock server initialized
     val isMockServerInitialized get() = ::mockServer.isInitialized
+    /** control Mock Server Lifecycle with Test class */
     @BeforeAll
     fun startMock() {
         mockServer = MockWebServer()
