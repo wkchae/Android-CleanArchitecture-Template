@@ -1,4 +1,4 @@
-package com.hubtwork.clean_android.data.network
+package com.hubtwork.clean_android.data.network.api
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -7,8 +7,9 @@ import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okio.buffer
 import okio.source
-import org.junit.After
-import org.junit.Before
+import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.TestInstance
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 import java.nio.charset.StandardCharsets
@@ -22,15 +23,16 @@ import java.nio.charset.StandardCharsets
  *
  */
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 abstract class MockAPI<T> {
-
     lateinit var mockServer: MockWebServer
-
-    @Before
+    // for test check is mock server initialized
+    val isMockServerInitialized get() = ::mockServer.isInitialized
+    @BeforeAll
     fun startMock() {
-        mockServer = MockWebServer().apply { start() }
+        mockServer = MockWebServer()
     }
-    @After
+    @AfterAll
     fun endMock() {
         mockServer.shutdown()
     }
@@ -51,6 +53,12 @@ abstract class MockAPI<T> {
     }
     /** mock function for enqueue response */
     fun enqueueResponse(fileName: String) { enqueueMockResponse(fileName = fileName, headers = emptyMap()) }
+    fun enqueueStringResponse(data: String) { enqueueMockStringResponse(data = data, headers = emptyMap()) }
+    private fun enqueueMockStringResponse(data: String, headers: Map<String, String>) {
+        val response = MockResponse()
+        headers.forEach { (key, value) -> response.addHeader(key, value) }
+        mockServer.enqueue(response.setBody(body = data))
+    }
     private fun enqueueMockResponse(fileName: String, headers: Map<String, String>) {
         val input = javaClass.classLoader!!.getResourceAsStream("responses/$fileName")
         val source = input.source().buffer()

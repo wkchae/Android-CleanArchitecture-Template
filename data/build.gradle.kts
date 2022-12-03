@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -38,8 +40,8 @@ dependencies {
     addHilt()
     addRetrofit()
 
-
     // Test
     addTestDependencies()
+    testImplementation("org.assertj:assertj-core:3.23.1")
     testImplementation(Dependency.Test.Network.mockWebserver)
 }

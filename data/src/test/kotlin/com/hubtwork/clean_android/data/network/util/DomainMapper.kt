@@ -1,8 +1,7 @@
-package com.hubtwork.clean_android.data.network
+package com.hubtwork.clean_android.data.network.util
 
 import com.hubtwork.clean_android.data.network.model.ResponseModel
 import com.hubtwork.clean_android.data.network.model.toDomainSafe
-import com.hubtwork.clean_android.data.network.util.InvalidResponseException
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail

@@ -1,7 +1,5 @@
-package com.hubtwork.clean_android.data.network
+package com.hubtwork.clean_android.data.network.util
 
-import com.hubtwork.clean_android.data.network.util.NetworkException
-import com.hubtwork.clean_android.data.network.util.UnknownException
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
