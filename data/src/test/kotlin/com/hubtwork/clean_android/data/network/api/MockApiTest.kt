@@ -27,7 +27,7 @@ interface TestApiService {
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class MockApiTest: MockAPI<TestApiService>() {
-    lateinit var service: TestApiService
+    private lateinit var service: TestApiService
     @BeforeAll
     fun initService() { service = createService(TestApiService::class.java) }
 

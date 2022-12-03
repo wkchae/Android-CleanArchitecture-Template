@@ -19,9 +19,7 @@ import org.junit.jupiter.api.*
 class PokeApiServiceTest: MockAPI<PokeApiService>() {
     private lateinit var service: PokeApiService
     @BeforeAll
-    fun initService() {
-        service = createService(PokeApiService::class.java)
-    }
+    fun initService() { service = createService(PokeApiService::class.java) }
 
     @Test
     @DisplayName("Fetch PokemonList")
