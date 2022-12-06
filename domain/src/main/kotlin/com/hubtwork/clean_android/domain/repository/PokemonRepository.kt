@@ -1,6 +1,6 @@
 package com.hubtwork.clean_android.domain.repository
 
-import com.hubtwork.clean_android.domain.model.Pokemon
+import com.hubtwork.clean_android.domain.model.PokemonThumbnail
 import com.hubtwork.clean_android.domain.util.io.DataResult
 
 /**
@@ -10,5 +10,5 @@ import com.hubtwork.clean_android.domain.util.io.DataResult
 interface PokemonRepository {
     suspend fun fetchPokemonList(
         groupId: Int
-    ): DataResult<List<Pokemon>>
+    ): DataResult<List<PokemonThumbnail>>
 }

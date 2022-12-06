@@ -9,7 +9,7 @@ package com.hubtwork.clean_android.domain.model
  * @property image [String] pokemon's imageUrl
  * @property groupId [String] pokemon's included groupId
  */
-data class Pokemon(
+data class PokemonThumbnail(
     val name: String,
     val image: String,
 ) {

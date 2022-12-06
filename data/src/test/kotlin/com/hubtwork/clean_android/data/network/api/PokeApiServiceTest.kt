@@ -26,7 +26,7 @@ class PokeApiServiceTest: MockAPI<PokeApiService>() {
     @DisplayName("Fetch PokemonList")
     fun t1() = runTest {
         enqueueResponse("pokemon_list.json")
-        val response = handle { service.fetchPokemon() }
+        val response = handle { service.fetchPokemonList() }
             .onSuccess { data ->
                 assertThat(data.size).isEqualTo(20)
                 val firstData = data.getOrNull(0) ?: fail { "it must be not null"}
@@ -37,6 +37,12 @@ class PokeApiServiceTest: MockAPI<PokeApiService>() {
             .onException { fail { "it must be success" } }
         // check is successful response
         assertThat(response is DataSuccess).isEqualTo(true)
+    }
+
+    @Test
+    fun t2() = runTest {
+        enqueueResponse("pokemon_bulbasaur.json")
+        val response = handle { service.getPokemonDetail("bulbasaur") }
     }
 
 }

@@ -1,7 +1,7 @@
 package com.hubtwork.clean_android.data.network.service
 
 import com.hubtwork.clean_android.data.network.util.handle
-import com.hubtwork.clean_android.domain.model.Pokemon
+import com.hubtwork.clean_android.domain.model.PokemonThumbnail
 import com.hubtwork.clean_android.domain.util.io.DataResult
 import javax.inject.Inject
 
@@ -19,9 +19,9 @@ class PokemonClient @Inject constructor(
      */
     suspend fun fetchPokemonList(
         groupId: Int
-    ): DataResult<List<Pokemon>> {
+    ): DataResult<List<PokemonThumbnail>> {
         return handle {
-            service.fetchPokemon(
+            service.fetchPokemonList(
                 offset = groupId * PAGE_CHUNK_SIZE,
                 limit = PAGE_CHUNK_SIZE
             )
