@@ -3,6 +3,7 @@ package com.hubtwork.clean_android.data.network.di
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import com.hubtwork.clean_android.data.BuildConfig
 import com.hubtwork.clean_android.data.network.interceptor.RequestInterceptor
 import com.hubtwork.clean_android.data.network.service.Endpoint
 import com.hubtwork.clean_android.data.network.service.PokeApiService
@@ -28,11 +29,15 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
+        val client = OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
             .addInterceptor(RequestInterceptor())
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        if (!BuildConfig.DEBUG) return client.build()
+        return client
+            .addInterceptor(
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            )
             .build()
     }
 

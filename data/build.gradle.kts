@@ -16,19 +16,6 @@ android {
 
         multiDexEnabled = true
     }
-
-    buildTypes {
-        release {
-            consumerProguardFiles("consumer-rules.pro")
-        }
-    }
-    compileOptions {
-        sourceCompatibility = Application.jvmSourceCompat
-        targetCompatibility = Application.jvmTargetCompat
-    }
-    kotlinOptions {
-        jvmTarget = Application.jvmTarget
-    }
 }
 
 dependencies {

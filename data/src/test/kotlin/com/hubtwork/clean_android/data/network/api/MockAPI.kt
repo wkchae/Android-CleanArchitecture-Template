@@ -36,6 +36,7 @@ abstract class MockAPI<T> {
     @BeforeEach
     fun startMock() {
         mockServer = MockWebServer()
+        mockServer.start()
     }
     @AfterEach
     fun endMock() {
@@ -63,12 +64,9 @@ abstract class MockAPI<T> {
             .create(clazz)
     }
     /** mock function for enqueue response */
-    fun enqueueNoResponse() { enqueueMockNoResponse() }
+    fun enqueueNoResponse() { mockServer.enqueue(MockResponse().setSocketPolicy(SocketPolicy.NO_RESPONSE)) }
     fun enqueueResponse(fileName: String) { enqueueFileMockResponse(fileName = fileName, headers = emptyMap()) }
     fun enqueueStringResponse(data: String) { enqueueStringMockResponse(data = data, headers = emptyMap()) }
-    private fun enqueueMockNoResponse() {
-        mockServer.enqueue(MockResponse().setSocketPolicy(SocketPolicy.NO_RESPONSE))
-    }
     private fun enqueueStringMockResponse(data: String, headers: Map<String, String>) {
         val response = MockResponse()
         headers.forEach { (key, value) -> response.addHeader(key, value) }
