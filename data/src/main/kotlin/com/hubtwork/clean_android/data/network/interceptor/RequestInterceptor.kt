@@ -15,15 +15,16 @@ import java.net.UnknownHostException
  * @contacts hubtwork@gmail.com
  */
 class RequestInterceptor: Interceptor {
-    @Throws(NetworkException::class)
+    @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
         try {
-            return chain.proceed(chain.request())
-        } catch (e: IOException) {
-            throw when(val cause = e.cause) {
-                is UnknownHostException -> NotConnectedException(cause)
-                is SocketTimeoutException -> RequestTimeoutException(cause)
-                else -> UnknownException(cause)
+            return chain.proceed(request)
+        } catch (e: Throwable) {
+            throw when (e) {
+                is UnknownHostException -> NotConnectedException(e)
+                is SocketTimeoutException -> RequestTimeoutException(e)
+                else -> UnknownException(e)
             }
         }
     }

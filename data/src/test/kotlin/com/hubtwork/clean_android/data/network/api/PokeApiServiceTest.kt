@@ -16,9 +16,10 @@ import org.junit.jupiter.api.*
  * @contacts hubtwork@gmail.com
  */
 @OptIn(ExperimentalCoroutinesApi::class)
+@DisplayName("Pokemon API Test")
 class PokeApiServiceTest: MockAPI<PokeApiService>() {
     private lateinit var service: PokeApiService
-    @BeforeAll
+    @BeforeEach
     fun initService() { service = createService(PokeApiService::class.java) }
 
     @Test

@@ -18,24 +18,17 @@ private suspend fun <Domain: Any> exceptionHandler (
     return try {
         handler()
     } catch (ex: Throwable) {
-        if (BuildConfig.DEBUG) ex.printStackTrace()
+//        if (BuildConfig.DEBUG) ex.printStackTrace()
         when(ex) {
-            is NetworkException -> {
-                when (val cause = ex.cause) {
-                    is NotConnectedException -> DataException(type = DataExceptionType.NoInternet)
-                    is SocketTimeoutException -> DataException(type = DataExceptionType.TimeOut)
-                    is InvalidResponseException -> DataException(type = DataExceptionType.JsonParse)
-                    else -> DataException(type = DataExceptionType.Unknown(cause))
-                }
-            }
+            is NetworkException -> ex.result
             else -> DataException(type = DataExceptionType.Unknown(ex))
         }
     }
 }
 
-suspend fun <Data: ResponseModel<Domain>, Domain: Any> handle (
-    response: suspend () -> Response<Data>
-): DataResult<Domain> {
+suspend fun <T: ResponseModel<V>, V: Any> handle (
+    response: suspend () -> Response<T>
+): DataResult<V> {
     return exceptionHandler {
         response().let {
             val body = it.body()
