@@ -2,6 +2,7 @@ package com.hubtwork.clean_android.data.network.api
 
 import com.hubtwork.clean_android.data.network.service.PokeApiService
 import com.hubtwork.clean_android.data.network.util.handle
+import com.hubtwork.clean_android.domain.model.PokemonType
 import com.hubtwork.clean_android.domain.util.io.DataSuccess
 import com.hubtwork.clean_android.domain.util.io.onError
 import com.hubtwork.clean_android.domain.util.io.onException
@@ -40,9 +41,22 @@ class PokeApiServiceTest: MockAPI<PokeApiService>() {
     }
 
     @Test
+    @DisplayName("Get PokemonDetail")
     fun t2() = runTest {
-        enqueueResponse("pokemon_bulbasaur.json")
-        val response = handle { service.getPokemonDetail("bulbasaur") }
+        val target = "bulbasaur"
+        enqueueResponse("pokemon_$target.json")
+        val response = handle { service.getPokemonDetail(target) }
+            .onSuccess { data ->
+                println(data)
+                assertThat(data.id).isEqualTo(1)
+                assertThat(data.name).isEqualTo(target)
+                assertThat(data.stats.speed.base).isEqualTo(45)
+                assertThat(data.types.contains(PokemonType.Grass)).isEqualTo(true)
+            }
+            .onError { fail { "it must be success" } }
+            .onException { fail { "it must be success" } }
+        // check is successful response
+        assertThat(response is DataSuccess).isEqualTo(true)
     }
 
 }

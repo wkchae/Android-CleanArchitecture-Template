@@ -34,8 +34,8 @@ allprojects {
             kotlinOptions {
                 jvmTarget = Application.jvmTarget
                 freeCompilerArgs = freeCompilerArgs + listOf(
-                    "-Xopt-in=kotlin.OptIn",
-                    "-Xopt-in=kotlin.RequiresOptIn",
+                    "-opt-in=kotlin.OptIn",
+                    "-opt-in=kotlin.RequiresOptIn",
                 )
             }
         }
