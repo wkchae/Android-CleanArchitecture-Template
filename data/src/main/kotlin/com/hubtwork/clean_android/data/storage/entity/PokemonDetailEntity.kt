@@ -1,6 +1,7 @@
 package com.hubtwork.clean_android.data.storage.entity
 
 import androidx.room.Embedded
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.hubtwork.clean_android.domain.model.PokemonDetail
 import com.hubtwork.clean_android.domain.model.PokemonType
@@ -9,6 +10,7 @@ import com.hubtwork.clean_android.domain.model.PokemonType
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
+@Entity
 data class PokemonDetailEntity(
     @PrimaryKey
     val id: Int,
