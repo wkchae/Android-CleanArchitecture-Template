@@ -34,6 +34,11 @@ fun DependencyHandler.addHilt() {
     implementation(Dependency.Util.hiltCore)
 }
 
+fun DependencyHandler.addRoom() {
+    kapt(Dependency.Database.roomCompiler)
+    implementation(Dependency.Database.room)
+}
+
 fun DependencyHandler.addTestDependencies(includeUiTest: Boolean = false) {
     // coroutine
     testImplementation(Dependency.Test.coroutine)

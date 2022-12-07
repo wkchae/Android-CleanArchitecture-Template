@@ -26,6 +26,7 @@ dependencies {
     addKotlin(isAndroid = true)
     addHilt()
     addRetrofit()
+    addRoom()
 
     // Test
     addTestDependencies()

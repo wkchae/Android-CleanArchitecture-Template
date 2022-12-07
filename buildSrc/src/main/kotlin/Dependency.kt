@@ -61,11 +61,18 @@ object Dependency {
 
     object Network {
         // -- OkHttp3
-        val okhttp = "com.squareup.okhttp3:okhttp:${Version.okHttp3}"
-        val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Version.okHttp3}"
+        const val okhttp = "com.squareup.okhttp3:okhttp:${Version.okHttp3}"
+        const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Version.okHttp3}"
         // -- Retrofit
-        val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
-        val retrofitConverterJackson = "com.squareup.retrofit2:converter-jackson:${Version.retrofit}"
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
+        const val retrofitConverterJackson = "com.squareup.retrofit2:converter-jackson:${Version.retrofit}"
+
+    }
+
+    object Database {
+        // Room
+        const val room = "androidx.room:room-runtime:${Version.room}"
+        const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
 
     }
 

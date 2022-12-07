@@ -31,6 +31,9 @@ object Version {
     // UI
     const val material = "1.7.0"
 
+    // DB
+    const val room = "2.4.3"
+
 
     // network
     const val okHttp3 = "4.10.0"
