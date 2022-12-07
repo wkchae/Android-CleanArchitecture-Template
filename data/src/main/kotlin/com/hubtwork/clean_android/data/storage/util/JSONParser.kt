@@ -2,7 +2,6 @@ package com.hubtwork.clean_android.data.storage.util
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
-import javax.inject.Inject
 
 /**
  * @author hubtwork (alenheo)
@@ -13,7 +12,7 @@ interface JSONParser {
     fun <T> parse(json: String, type: TypeReference<T>): T
     fun <T> stringify(data: T): String
 }
-class JacksonParser @Inject constructor(
+class JacksonParser(
     private val mapper: ObjectMapper
 ): JSONParser {
     override fun <T> parse(json: String, type: Class<T>): T {
