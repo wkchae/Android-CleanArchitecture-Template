@@ -14,7 +14,7 @@ object PokemonMockUtil {
     fun mockThumbnail() = PokemonThumbnail(
         name = "bulbasaur",
         image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-    ).apply { markGroup(1) }
+    ).apply { markGroup(0) }
     fun mockThumbnailList() = listOf<PokemonThumbnail>(mockThumbnail())
 
     fun mockDetail() = PokemonDetail(

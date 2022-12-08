@@ -7,7 +7,7 @@ import com.hubtwork.clean_android.domain.model.PokemonThumbnail
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
-class PokemonThumbnailMapper: EntityMapper<PokemonThumbnail, PokemonThumbnailEntity> {
+object PokemonThumbnailMapper: EntityMapper<PokemonThumbnail, PokemonThumbnailEntity> {
     override fun toEntity(domain: PokemonThumbnail): PokemonThumbnailEntity {
         return PokemonThumbnailEntity(
             name = domain.name,
@@ -22,4 +22,10 @@ class PokemonThumbnailMapper: EntityMapper<PokemonThumbnail, PokemonThumbnailEnt
             image = entity.imageUrl
         ).apply { markGroup(entity.groupId) }
     }
+}
+fun List<PokemonThumbnail>.toEntity(): List<PokemonThumbnailEntity> {
+    return map { PokemonThumbnailMapper.toEntity(it) }
+}
+fun List<PokemonThumbnailEntity>.toDomain(): List<PokemonThumbnail> {
+    return map { PokemonThumbnailMapper.toDomain(it) }
 }

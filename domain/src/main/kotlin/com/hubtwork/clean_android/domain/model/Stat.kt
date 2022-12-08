@@ -11,7 +11,5 @@ data class Stat(
     val effort: Int = 0,
     private val max: Int = 300,
 ) {
-    val percentage: Double get() = base.toDouble().div(max)
-
     constructor(param: StatParam) : this(param.first, param.second)
 }
