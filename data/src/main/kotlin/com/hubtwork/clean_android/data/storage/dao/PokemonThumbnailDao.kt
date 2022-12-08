@@ -16,9 +16,9 @@ interface PokemonThumbnailDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(data: List<PokemonThumbnailEntity>)
 
-    @Query("select * from PokemonThumbnailEntity where groupId = :_groupId")
-    suspend fun getByGroupId(_groupId: String): List<PokemonThumbnailEntity>
+    @Query("select * from PokemonThumbnailEntity where groupId = :groupId_")
+    suspend fun getByGroupId(groupId_: Int): List<PokemonThumbnailEntity>
 
-    @Query("select * from PokemonThumbnailEntity where groupId <= :_groupId")
-    suspend fun getAll(_groupId: String): List<PokemonThumbnailEntity>
+    @Query("select * from PokemonThumbnailEntity where groupId <= :groupId_")
+    suspend fun getAll(groupId_: Int): List<PokemonThumbnailEntity>
 }

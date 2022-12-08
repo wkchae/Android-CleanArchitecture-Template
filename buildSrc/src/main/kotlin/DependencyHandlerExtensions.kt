@@ -37,15 +37,24 @@ fun DependencyHandler.addHilt() {
 fun DependencyHandler.addRoom() {
     kapt(Dependency.Database.roomCompiler)
     implementation(Dependency.Database.room)
+    implementation(Dependency.Database.roomKtx)
 }
 
-fun DependencyHandler.addTestDependencies(includeUiTest: Boolean = false) {
+fun DependencyHandler.addTestDependencies(needContextUnitTest: Boolean = false, includeUiTest: Boolean = false) {
     // coroutine
     testImplementation(Dependency.Test.coroutine)
     // JUnit5
     testRuntimeOnly(Dependency.Test.JUnit.engine)
     testImplementation(Dependency.Test.JUnit.api)
     testImplementation(Dependency.Test.JUnit.param)
+    // assertJ
+    testImplementation(Dependency.Test.assertJ)
+    if (needContextUnitTest) {
+        testImplementation(Dependency.Test.JUnit.vintageEngine)
+        testImplementation(Dependency.Test.androidTestCore)
+        testImplementation("androidx.test.ext:junit-ktx:1.1.4")
+        testImplementation(Dependency.Test.roboletric)
+    }
     if (includeUiTest) {
         androidTestRuntimeOnly(Dependency.Test.JUnit.instrumentalEngine)
         androidTestImplementation(Dependency.Test.JUnit.instrumentalCore)

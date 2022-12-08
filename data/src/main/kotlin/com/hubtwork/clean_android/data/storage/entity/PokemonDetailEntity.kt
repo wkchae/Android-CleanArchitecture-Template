@@ -1,6 +1,5 @@
 package com.hubtwork.clean_android.data.storage.entity
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.hubtwork.clean_android.domain.model.PokemonDetail
@@ -19,7 +18,7 @@ data class PokemonDetailEntity(
     val weight: Int,
     val height: Int,
     // stats
-    @Embedded
     val stats: PokemonDetail.Stats,
+    // types
     val types: List<PokemonType>,
 )

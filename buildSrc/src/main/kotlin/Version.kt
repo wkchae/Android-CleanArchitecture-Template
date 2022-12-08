@@ -13,6 +13,7 @@ object Version {
     // test
     const val junit = "5.9.1"
     const val junitPlugin = "1.3.0"
+    const val assertJ = "3.23.1"
     const val espresso = "3.5.0"
 
     // androidX
@@ -25,6 +26,8 @@ object Version {
         const val fragment = "1.5.4"
 
         const val splashScreen = "1.0.0"
+
+        const val testCore = "1.5.0"
 
         const val startUp = "1.1.1"
     }

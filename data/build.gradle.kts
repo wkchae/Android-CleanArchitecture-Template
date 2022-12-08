@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -21,6 +19,7 @@ android {
 dependencies {
     // Module
     implementation(project(":domain"))
+    implementation("androidx.test:core-ktx:1.5.0")
 
     // Dependency
     addKotlin(isAndroid = true)
@@ -29,7 +28,6 @@ dependencies {
     addRoom()
 
     // Test
-    addTestDependencies()
-    testImplementation("org.assertj:assertj-core:3.23.1")
+    addTestDependencies(needContextUnitTest = true)
     testImplementation(Dependency.Test.Network.mockWebserver)
 }

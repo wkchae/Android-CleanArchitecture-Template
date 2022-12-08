@@ -3,6 +3,7 @@ package com.hubtwork.clean_android.data.storage.util
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.fasterxml.jackson.core.type.TypeReference
+import com.hubtwork.clean_android.domain.model.PokemonDetail
 import com.hubtwork.clean_android.domain.model.PokemonType
 import javax.inject.Inject
 
@@ -26,5 +27,13 @@ class PokemonTypeConverter @Inject constructor(
             json = data,
             type = listType,
         ).map { PokemonType from it }
+    }
+    @TypeConverter
+    fun toStatsEntity(data: PokemonDetail.Stats): String {
+        return parser.stringify(data)
+    }
+    @TypeConverter
+    fun fromStatsEntity(data: String): PokemonDetail.Stats {
+        return parser.parse(json = data, type = PokemonDetail.Stats::class.java)
     }
 }

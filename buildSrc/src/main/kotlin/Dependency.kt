@@ -27,6 +27,12 @@ object Dependency {
         }
         // espresso
         const val espresso = "androidx.test.espresso:espresso-core:${Version.espresso}"
+        // assertJ
+        const val assertJ = "org.assertj:assertj-core:${Version.assertJ}"
+        // test core
+        const val androidTestCore = "androidx.test:core-ktx:${Version.AndroidX.testCore}"
+        // robolectric
+        const val roboletric = "org.robolectric:robolectric:4.9"
     }
 
     object Kotlin {
@@ -37,21 +43,21 @@ object Dependency {
 
     object AndroidX {
         // core
-        val core = "androidx.core:core-ktx:${Version.AndroidX.core}"
+        const val core = "androidx.core:core-ktx:${Version.AndroidX.core}"
         // appcompat
-        val appCompat = "androidx.appcompat:appcompat:${Version.AndroidX.appCompat}"
+        const val appCompat = "androidx.appcompat:appcompat:${Version.AndroidX.appCompat}"
         // collection
-        val collection = "androidx.collection:collection-ktx:${Version.AndroidX.collection}"
+        const val collection = "androidx.collection:collection-ktx:${Version.AndroidX.collection}"
         // lifecycle ( 2.5.1 ~ activity ktx too )
-        val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidX.lifecycle}"
+        const val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidX.lifecycle}"
         // recyclerview
-        val recyclerView = "androidx.recyclerview:recyclerview:${Version.AndroidX.recyclerView}"
+        const val recyclerView = "androidx.recyclerview:recyclerview:${Version.AndroidX.recyclerView}"
         // fragment
-        val fragment = "androidx.fragment:fragment-ktx:${Version.AndroidX.fragment}"
+        const val fragment = "androidx.fragment:fragment-ktx:${Version.AndroidX.fragment}"
         // splash screen api 12
-        val splashScreen = "androidx.core:core-splashscreen:${Version.AndroidX.splashScreen}"
+        const val splashScreen = "androidx.core:core-splashscreen:${Version.AndroidX.splashScreen}"
         // startup
-        val startUp = "androidx.startup:startup-runtime:${Version.AndroidX.startUp}"
+        const val startUp = "androidx.startup:startup-runtime:${Version.AndroidX.startUp}"
     }
 
     object UI {
@@ -72,6 +78,7 @@ object Dependency {
     object Database {
         // Room
         const val room = "androidx.room:room-runtime:${Version.room}"
+        const val roomKtx = "androidx.room:room-ktx:${Version.room}"
         const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
 
     }

@@ -55,5 +55,5 @@ dependencies {
     ))
 
     // Test
-    addTestDependencies(includeUiTest = true)
+    addTestDependencies(needContextUnitTest = true, includeUiTest = true)
 }
