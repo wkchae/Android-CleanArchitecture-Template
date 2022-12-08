@@ -10,7 +10,7 @@ import org.junit.jupiter.api.fail
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
-class DomainMapper {
+class DomainMapperTest {
     data class TestDomain (val test: Boolean)
     data class TestData (val test: Boolean?): ResponseModel<TestDomain> {
         override val isValid: Boolean get() = test != null
