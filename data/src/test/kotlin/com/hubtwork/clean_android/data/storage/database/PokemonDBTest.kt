@@ -8,14 +8,12 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
 /**
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [21])
 class PokemonDBTest: MockDB() {
 
     private lateinit var thumbnailDao: PokemonThumbnailDao
@@ -31,6 +29,10 @@ class PokemonDBTest: MockDB() {
     fun `DAO call test - empty`() {
         val emptyListInDB = runBlocking { thumbnailDao.getAll(5) }
         assertThat(emptyListInDB).isEmpty()
+    }
+    @Test
+    fun `Thumbnail - Insert`() {
+        val thumbnails =
     }
 
 }

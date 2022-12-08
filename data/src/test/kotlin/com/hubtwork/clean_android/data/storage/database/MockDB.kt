@@ -8,14 +8,13 @@ import com.hubtwork.clean_android.data.storage.util.JacksonParser
 import com.hubtwork.clean_android.data.storage.util.PokemonTypeConverter
 import org.junit.After
 import org.junit.Before
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 /**
  * @author hubtwork (alenheo)
  * @contacts hubtwork@gmail.com
  */
-@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [21])
 abstract class MockDB {
     lateinit var db: PokemonDatabase
 
