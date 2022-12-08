@@ -32,3 +32,9 @@ object PokemonDetailMapper: EntityMapper<PokemonDetail, PokemonDetailEntity> {
         )
     }
 }
+fun PokemonDetail.toEntity(): PokemonDetailEntity {
+    return PokemonDetailMapper.toEntity(this)
+}
+fun PokemonDetailEntity.toDomain(): PokemonDetail {
+    return PokemonDetailMapper.toDomain(this)
+}

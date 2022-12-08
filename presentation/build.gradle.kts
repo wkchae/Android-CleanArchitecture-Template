@@ -43,6 +43,8 @@ dependencies {
     // Project
     implementation(project(":domain"))
 
+    addKotlin(isAndroid = true)
+
     // Util
     addHilt()
 
@@ -51,6 +53,7 @@ dependencies {
     bulkImplementation(listOf(
         Dependency.AndroidX.core,
         Dependency.AndroidX.appCompat,
+        Dependency.AndroidX.lifeCycle,
         Dependency.UI.material,
     ))
 

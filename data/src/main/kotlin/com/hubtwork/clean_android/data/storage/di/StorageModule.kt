@@ -3,6 +3,7 @@ package com.hubtwork.clean_android.data.storage.di
 import android.app.Application
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.hubtwork.clean_android.data.storage.PokemonStorage
 import com.hubtwork.clean_android.data.storage.database.PokemonDatabase
 import com.hubtwork.clean_android.data.storage.util.JSONParser
 import com.hubtwork.clean_android.data.storage.util.JacksonParser
@@ -49,4 +50,10 @@ object StorageModule {
             typeConverter = typeConverter
         )
     }
+
+    @Provides
+    @Singleton
+    fun providePokemonStorage(
+        database: PokemonDatabase
+    ) = PokemonStorage(database = database)
 }
